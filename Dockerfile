@@ -1,5 +1,4 @@
-FROM python:3.8-alpine
-LABEL maintainer="dcruzf@home.org.au" 
+FROM python:3.8-slim-buster
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1

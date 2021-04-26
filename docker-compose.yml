@@ -6,4 +6,12 @@ services:
             - 8000:8000
         volumes:
             - ./app/:/app/
+        env_file: 
+            ./env/.app.env
+        environment:
+            - DB_HOST=db
         command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    db:
+        image: postgres:12-alpine
+        env_file: 
+            ./env/.db.env

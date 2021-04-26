@@ -5,6 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        name: Creating enviroment db file
+        run: mkdir env
+        run: echo POSTGRES_DB=${{POSTGRES_DB}} >> ./env/.db.env &&
+             echo POSTGRES_USER=${{POSTGRES_USER}} >> ./env/.db.env &&
+             echo POSTGRES_PASSWORD=${{POSTGRES_PASSWORD}} >> ./env/.db.env
+        name: Creating enviroment app file
+        run: echo DB_NAME=${{POSTGRES_DB}} >> ./env/.app.env &&
+             echo DB_USER=${{POSTGRES_USER}} >> ./env/.app.env &&
+             echo DB_PASS=${{POSTGRES_PASSWORD}} >> ./env/.app.env &&
+             echo SECRET_KEY=4{{SECRET_KEY}} >> ./env/.app.env
       - name: Build
         run: docker-compose build
       - name: Test
