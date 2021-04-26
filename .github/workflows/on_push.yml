@@ -8,14 +8,14 @@ jobs:
       - name: Creating enviroment db file
         run: mkdir env
       - name: Creating enviroment db file
-        run: echo POSTGRES_DB=${{POSTGRES_DB}} >> env/.db.env
-        run: echo POSTGRES_USER=${{POSTGRES_USER}} >> env/.db.env
-        run: echo POSTGRES_PASSWORD=${{POSTGRES_PASSWORD}} >> env/.db.env
+        run: echo POSTGRES_DB=${{secrets.POSTGRES_DB}} >> env/.db.env
+        run: echo POSTGRES_USER=${{secrets.POSTGRES_USER}} >> env/.db.env
+        run: echo POSTGRES_PASSWORD=${{secrets.POSTGRES_PASSWORD}} >> env/.db.env
       - name: Creating enviroment app file
-        run: echo DB_NAME=${{POSTGRES_DB}} >> env/.app.env 
-        run: echo DB_USER=${{POSTGRES_USER}} >> env/.app.env 
-        run: echo DB_PASS=${{POSTGRES_PASSWORD}} >> env/.app.env 
-        run: echo SECRET_KEY=4{{SECRET_KEY}} >> env/.app.env
+        run: echo DB_NAME=${{secrets.POSTGRES_DB}} >> env/.app.env 
+        run: echo DB_USER=${{secrets.POSTGRES_USER}} >> env/.app.env 
+        run: echo DB_PASS=${{secrets.POSTGRES_PASSWORD}} >> env/.app.env 
+        run: echo SECRET_KEY=4{{secrets.SECRET_KEY}} >> env/.app.env
       - name: Build
         run: docker-compose build
       - name: Test
