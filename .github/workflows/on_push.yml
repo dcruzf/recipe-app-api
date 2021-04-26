@@ -12,10 +12,10 @@ jobs:
         run: echo POSTGRES_USER=${{POSTGRES_USER}} >> env/.db.env
         run: echo POSTGRES_PASSWORD=${{POSTGRES_PASSWORD}} >> env/.db.env
         name: Creating enviroment app file
-        run: echo DB_NAME=${{POSTGRES_DB}} >> env/.app.env &&
-             echo DB_USER=${{POSTGRES_USER}} >> env/.app.env &&
-             echo DB_PASS=${{POSTGRES_PASSWORD}} >> env/.app.env &&
-             echo SECRET_KEY=4{{SECRET_KEY}} >> env/.app.env
+        run: echo DB_NAME=${{POSTGRES_DB}} >> env/.app.env 
+        run: echo DB_USER=${{POSTGRES_USER}} >> env/.app.env 
+        run: echo DB_PASS=${{POSTGRES_PASSWORD}} >> env/.app.env 
+        run: echo SECRET_KEY=4{{SECRET_KEY}} >> env/.app.env
       - name: Build
         run: docker-compose build
       - name: Test
