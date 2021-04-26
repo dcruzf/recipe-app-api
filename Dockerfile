@@ -1,4 +1,4 @@
-FROM python:3.10.0a7-slim-buster
+FROM python:3.8-alpine
 LABEL maintainer="dcruzf@home.org.au" 
 
 # set environment variables
@@ -11,6 +11,8 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # copy project
+RUN mkdir /app
+WORKDIR /app
 COPY ./app .
 # set work directory
 WORKDIR /app
