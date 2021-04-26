@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        name: Creating enviroment db file
+      - name: Creating enviroment db file
         run: mkdir env
       - name: Creating enviroment db file
         run: echo POSTGRES_DB=${{POSTGRES_DB}} >> env/.db.env
