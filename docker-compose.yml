@@ -21,8 +21,3 @@ services:
         image: postgres:12-alpine
         env_file: 
             ./env/.db.env
-        healthcheck:
-            test: pg_isready
-            interval: 3s
-            timeout: 3s
-            retries: 3
