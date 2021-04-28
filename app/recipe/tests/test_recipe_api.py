@@ -124,7 +124,7 @@ class PrivateRecipeApiTests(TestCase):
         self.assertEqual(len(res.data), 1)
         self.assertEqual(res.data, serializer.data)
 
-    def test_view_recipw_detail(self):
+    def test_view_recipe_detail(self):
         """
         Test viewing a recipe detail
         """
