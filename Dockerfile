@@ -16,4 +16,9 @@ COPY ./app .
 # set work directory
 WORKDIR /app
 
+RUN mkdir -p /vol/web/media
+RUN mkdir -p /vol/web/static
+RUN useradd -d /app/ -s /bin/bash user
+RUN chown -R user:user /vol/
+RUN chmod -R 755 /vol/
 USER user
